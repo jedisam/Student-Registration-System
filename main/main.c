@@ -142,14 +142,27 @@ printf("\t\t::");	printf("\t\t1 - Add a new Student\t\t\t\t::\n\t\t::\t\t2 - Vie
 				system("cls");
 				header();
 				system("color 6");
-				char password[10]="mypassword";
+				char password[15];
 				int blki;
 				int incr=0;
 				
 				printf("\n\t\t\t************ -BlackList a Student- ************\n\n\n");
 				printf("\t\t Blacklisting a Student requires an adminstrator privilage\n\n\n");
 				printf("Enter Adminstrator password: ");
-				scanf("%s",&password);
+				///////
+				
+				// Make password hidden
+				 int p=0; 
+                do{ 
+                    password[p]=getch(); 
+                    if(password[p]!='\r'){ 
+                        printf("*"); 
+                    } 
+                  p++; 
+                }while(password[p-1]!='\r'); 
+                password[p-1]='\0'; 
+				///////
+				//scanf("%s",&password);
 				if(strcmp(password,"mypassword")==0){
 					system("cls");	header();	system("color 6"); 	printf("\n\t\t\t************ -BlackList a Student- ************\n\n\n");
 					printf("\t\t\t\t======Adminstrator Mode======\n\n");
@@ -210,8 +223,8 @@ printf("\t\t::");	printf("\t\t1 - Add a new Student\t\t\t\t::\n\t\t::\t\t2 - Vie
 				  fclose(rm3);
 				 fclose(rm4);	
 			} else{
-					printf("Wrong Password\n");
-					printf("Redirecting to main menu");delay();printf("\n\n");
+					printf("\nWrong Password\n");
+					printf("\n\tRedirecting to main menu");delay();printf("\n\n");
 				}
 				
 				k:
@@ -224,14 +237,25 @@ printf("\t\t::");	printf("\t\t1 - Add a new Student\t\t\t\t::\n\t\t::\t\t2 - Vie
 				system("cls");
 				header();
 				system("color 6");
-				char password[15]="mypassword";
+				char password[15];
 				int recid;
 				int incr=0;
 				
 				printf("\n\t\t================== Recover a student from Blacklist ===============\n\n");
 				printf("\t\t Recovering a Student requires an adminstrator privilage\n\n\n");
 				printf("Enter Adminstrator password: ");
-				scanf("%s",&password);
+				// Make password hidden
+				 int p=0; 
+                do{ 
+                    password[p]=getch(); 
+                    if(password[p]!='\r'){ 
+                        printf("*"); 
+                    } 
+                  p++; 
+                }while(password[p-1]!='\r'); 
+                password[p-1]='\0'; 
+                
+				//scanf("%s",&password);
 				if(strcmp(password,"mypassword")==0){
 				   system("cls");	header(); system("color 6");  	printf("\n\t\t================== Recover a student from Blacklist ===============\n\n");
 				   printf("\t\t\t\t======Adminstrator Mode======\n\n");
@@ -292,9 +316,9 @@ printf("\t\t::");	printf("\t\t1 - Add a new Student\t\t\t\t::\n\t\t::\t\t2 - Vie
 				 fclose(rm4);
 			}
 				 else{
-					printf("Wrong Password\n");
+					printf("\nWrong Password\n");
 					bj:
-					printf("Redirecting to main menu");delay();printf("\n\n");
+					printf("\n\tRedirecting to main menu");delay();printf("\n\n");
 				}
 				 							
 					system("pause.bat");
@@ -328,7 +352,7 @@ printf("\t\t::");	printf("\t\t1 - Add a new Student\t\t\t\t::\n\t\t::\t\t2 - Vie
 			}
 			
 			case 6:{
-				char password[10];
+				char password[15];
 				system("cls");
 				header();
 				system("color 4");
@@ -337,7 +361,17 @@ printf("\t\t::");	printf("\t\t1 - Add a new Student\t\t\t\t::\n\t\t::\t\t2 - Vie
 				printf("\n\t\t\t  ************Remove a Student************\n\n\n");
 				printf("\t\tDeleting a Student requires an adminstrator privilage\n\n\n");
 				printf("Enter Adminstrator password: ");
-				scanf("%s",&password);
+				//Make Password hidden
+				 int p=0; 
+                do{ 
+                    password[p]=getch(); 
+                    if(password[p]!='\r'){ 
+                        printf("*"); 
+                    } 
+                  p++; 
+                }while(password[p-1]!='\r'); 
+                password[p-1]='\0'; 
+				//scanf("%s",&password);
 				if(strcmp(password,"mypassword")==0){
 				system("cls");	header(); system("color 4");  printf("\n\t\t\t  ************Remove a Student************\n\n\n");
 				printf("\n\t\t\t\t======Adminstrator Mode======\n\n");
@@ -391,9 +425,9 @@ printf("\t\t::");	printf("\t\t1 - Add a new Student\t\t\t\t::\n\t\t::\t\t2 - Vie
 			     fclose(rm3); fclose(rm4);		
 				 printf("\nStudent has been succsessfully Removed!\n");	
 				}else{
-					printf("Wrong Password\n");
+					printf("\nWrong Password\n");
 					aj:
-					printf("Redirecting to main menu");delay();printf("\n\n");
+					printf("\n\tRedirecting to main menu");delay();printf("\n\n");
 				}
 				
 				system("pause.bat");

@@ -6,3 +6,4 @@ Kaleb	431	electrical	1	M	3	0
 Feven	153	electrical	1	F	4	1
 Jaden	716	software	2	M	2	1
 Jerry	872	electrical	4	F	1	1
+Woleta	541	chemical	4	M	3	1
