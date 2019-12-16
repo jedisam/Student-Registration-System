@@ -19,8 +19,7 @@ int i = 1;
 
 	header();
 	
-
-	FILE *fp = fopen("stud.txt","aw+");
+		printf("\n\n\n\n\n\n\n\t\t\t\t\tLoading");delay(); system("cls"); header();
 	
 	if(i!=0){
 		mn:
@@ -28,7 +27,8 @@ int i = 1;
 				
 		header();		// screen menu
 		
-printf("\t\t::");		printf("\t1 - Add a new Student\t\t\t\t\t::\n\t\t::\t2 - View List of registered Students\t\t\t::\n\t\t::\t3 - Blacklist a student\t\t\t\t\t::\n\t\t::\t4 - Recover a Student\t\t\t\t\t::\n\t\t::\t5 - Search for a Student\t\t\t\t::\n\t\t::\t6 - Remove Student\t\t\t\t\t::\n\t\t::\t7 -  Group Members\t\t\t\t\t::\n\t\t::\t0 - Exit\t\t\t\t\t\t::\n\t\t::\n");
+		
+printf("\t\t::");	printf("\t\t1 - Add a new Student\t\t\t\t::\n\t\t::\t\t2 - View List of registered Students\t\t::\n\t\t::\t\t3 - Blacklist a student\t\t\t\t::\n\t\t::\t\t4 - Recover a Student\t\t\t\t::\n\t\t::\t\t5 - Search for a Student\t\t\t::\n\t\t::\t\t6 - Remove Student\t\t\t\t::\n\t\t::\t\t7 -  Group Members\t\t\t\t::\n\t\t::\t\t0 - Exit\t\t\t\t\t::\n\t\t::\n");
 		printf("\t\t::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");	
 		printf("\n Enter your Choice: ");
 		scanf("%d",&prompt);
@@ -38,21 +38,18 @@ printf("\t\t::");		printf("\t1 - Add a new Student\t\t\t\t\t::\n\t\t::\t2 - View
 					system("cls");		// clean the screen					
 					header();		// screen menu
 					system("color 6");
-					
+					FILE *fp = fopen("stud.txt","aw+");					
 						printf("\t\t\t\t - Regitsration of a Student -\n\n\n");
 					
 					if(fp==NULL){
 							printf("Error opening file");
 							exit(1);
 						}
+						
 					addStudent(fp);
 					
 						fclose(fp);
-						//	delay();
-							
-					//	system("pause.bat");
-					  //  goto mn;
-					  
+			
 				break;
 			}
 				
@@ -62,7 +59,7 @@ printf("\t\t::");		printf("\t1 - Add a new Student\t\t\t\t\t::\n\t\t::\t2 - View
 				system("color 3");
 			
 				printf("\t1 - By Department\n\t2 - By Block\n\t3 -By Academic Year\n\n");
-				
+				printf("View By: ");
 					scanf("%d",&view);
 				switch(view){
 					case 1:{
@@ -73,34 +70,15 @@ printf("\t\t::");		printf("\t1 - Add a new Student\t\t\t\t\t::\n\t\t::\t2 - View
 							printf("\t\t\t\t  List of Registered Students\n");
 							printf("\t\t\t\t\t-- By Department--\n");
 							
-						FILE *op = fopen("stud.txt","r");
-						FILE *Mp = fopen("stud.txt","r");
-						FILE *Sp = fopen("stud.txt","r");
-						FILE *ch = fopen("stud.txt","r");
+						FILE *op = fopen("stud.txt","r"); FILE *Mp = fopen("stud.txt","r");	FILE *Sp = fopen("stud.txt","r"); FILE *ch = fopen("stud.txt","r");
 						
-							if(op==NULL){
-								printf("Error reading file");
-								return 1;
-							}
-								if(Mp==NULL){
-								 printf("Error reading file");
-								 return 1;
-							}
-							
-							if(Sp==NULL){
-								printf("Error reading file");
-								return 1;
-							}
-							if(ch==NULL){
+							if(op==NULL||Mp==NULL||Sp==NULL||ch==NULL){
 								printf("Error reading file");
 								return 1;
 							}
 								viewByDepartment(op,Mp,Sp,ch);	
 								
-							fclose(op);
-							fclose(Mp);
-							fclose(Sp);
-							fclose(ch);
+							fclose(op);	fclose(Mp); fclose(Sp);	fclose(ch);
 						
 						break;										
 					}
@@ -115,36 +93,16 @@ printf("\t\t::");		printf("\t1 - Add a new Student\t\t\t\t\t::\n\t\t::\t2 - View
 							printf("\t\t\t\t\t-- By Block --\n");
 	
 						
-				FILE *bp = fopen("stud.txt","r");
-				FILE *bp2 = fopen("stud.txt","r");
-				FILE *bp3 = fopen("stud.txt","r");
-				FILE *bp4 = fopen("stud.txt","r");
+				FILE *bp = fopen("stud.txt","r");	FILE *bp2 = fopen("stud.txt","r"); FILE *bp3 = fopen("stud.txt","r"); FILE *bp4 = fopen("stud.txt","r");
 				
-					if(bp==NULL){
-					printf("Error reading file");
-					return 1;
-				}
-					if(bp2==NULL){
-					printf("Error reading file");
-					return 1;
-				}
-					if(bp3==NULL){
-					printf("Error reading file");
-					return 1;
-				}
-					if(bp4==NULL){
+					if(bp==NULL||bp2==NULL||bp3==NULL||bp4==NULL){
 					printf("Error reading file");
 					return 1;
 				}
 				
 				viewByBlock(bp,bp2,bp3,bp4);
 				
-				 fclose(bp);
-			     fclose(bp2);
-			     fclose(bp3);
-				 fclose(bp4);			     
-			     
-					
+				 fclose(bp); fclose(bp2); fclose(bp3); fclose(bp4);			     	
 						break;										
 					}
 					
@@ -157,40 +115,17 @@ printf("\t\t::");		printf("\t1 - Add a new Student\t\t\t\t\t::\n\t\t::\t2 - View
 							printf("\t\t\t\t\t-- By Academic Year --\n");
 				
 						
-				FILE *yp = fopen("stud.txt","r");
-				FILE *yp2 = fopen("stud.txt","r");
-				FILE *yp3 = fopen("stud.txt","r");
-				FILE *yp4 = fopen("stud.txt","r");
+				FILE *yp = fopen("stud.txt","r"); FILE *yp2 = fopen("stud.txt","r"); FILE *yp3 = fopen("stud.txt","r"); FILE *yp4 = fopen("stud.txt","r");
 				FILE *yp5 = fopen("stud.txt","r");
 				
-					if(yp==NULL){
+					if(yp==NULL||yp2==NULL||yp3==NULL||yp4==NULL||yp5==NULL){
 						printf("Error reading file");
 						return 1;
 					}
-					if(yp2==NULL){
-						printf("Error reading file");
-						return 1;
-					}
-					if(yp3==NULL){
-						printf("Error reading file");
-						return 1;
-					}	
-					if(yp4==NULL){
-						printf("Error reading file");
-						return 1;
-					}
-					if(yp5==NULL){
-						printf("Error reading file");
-						return 1;
-					}	
 					
 					viewByAcademicYear(yp,yp2,yp3,yp4,yp5);
 				
-				fclose(yp);
-				fclose(yp2); 	
-				fclose(yp3);
-			    fclose(yp4);
-			    fclose(yp5);			     		     
+				fclose(yp);	fclose(yp2); fclose(yp3);  fclose(yp4); fclose(yp5);			     		     
 		
 						break;										
 					}				
@@ -207,11 +142,17 @@ printf("\t\t::");		printf("\t1 - Add a new Student\t\t\t\t\t::\n\t\t::\t2 - View
 				system("cls");
 				header();
 				system("color 6");
-				
+				char password[10]="mypassword";
 				int blki;
 				int incr=0;
 				
 				printf("\n\t\t\t************ -BlackList a Student- ************\n\n\n");
+				printf("\t\t Blacklisting a Student requires an adminstrator privilage\n\n\n");
+				printf("Enter Adminstrator password: ");
+				scanf("%s",&password);
+				if(strcmp(password,"mypassword")==0){
+					system("cls");	header();	system("color 6"); 	printf("\n\t\t\t************ -BlackList a Student- ************\n\n\n");
+					printf("\t\t\t\t======Adminstrator Mode======\n\n");
 				printf("Enter the id of the student you want to BlackList: ");
 				scanf("%d",&blki);
 				
@@ -240,8 +181,7 @@ printf("\t\t::");		printf("\t1 - Add a new Student\t\t\t\t\t::\n\t\t::\t2 - View
 									fprintf(rm2,"%s\t%d\t%s\t%d\t%s\t%d\t%d\n",stud.name,stud.id,stud.department,stud.year,stud.sex,stud.block,nvail);
 								}
 					}
-			     fclose(rm);
-				 fclose(rm2);
+			     fclose(rm); fclose(rm2);
 				 
 						 if(incr==0){
 						 	printf("\nThere is no Student with given ID!\n");
@@ -268,7 +208,11 @@ printf("\t\t::");		printf("\t1 - Add a new Student\t\t\t\t\t::\n\t\t::\t2 - View
 				 
 				 printf("\nStudent has been successfully added to BlackList!\n");
 				  fclose(rm3);
-				 fclose(rm4);				
+				 fclose(rm4);	
+			} else{
+					printf("Wrong Password\n");
+					printf("Redirecting to main menu");delay();printf("\n\n");
+				}
 				
 				k:
 				system("pause.bat");
@@ -280,11 +224,17 @@ printf("\t\t::");		printf("\t1 - Add a new Student\t\t\t\t\t::\n\t\t::\t2 - View
 				system("cls");
 				header();
 				system("color 6");
-				
+				char password[15]="mypassword";
 				int recid;
 				int incr=0;
 				
 				printf("\n\t\t================== Recover a student from Blacklist ===============\n\n");
+				printf("\t\t Recovering a Student requires an adminstrator privilage\n\n\n");
+				printf("Enter Adminstrator password: ");
+				scanf("%s",&password);
+				if(strcmp(password,"mypassword")==0){
+				   system("cls");	header(); system("color 6");  	printf("\n\t\t================== Recover a student from Blacklist ===============\n\n");
+				   printf("\t\t\t\t======Adminstrator Mode======\n\n");
 				printf("Enter the id of the student you want to remove from blacklist: ");
 				scanf("%d",&recid);
 				
@@ -314,16 +264,14 @@ printf("\t\t::");		printf("\t1 - Add a new Student\t\t\t\t\t::\n\t\t::\t2 - View
 									fprintf(rm2,"%s\t%d\t%s\t%d\t%s\t%d\t%d\n",stud.name,stud.id,stud.department,stud.year,stud.sex,stud.block,avail);
 								}
 					}
-			     fclose(rm);
-				 fclose(rm2);
+			     fclose(rm); fclose(rm2);
 				
 						 if(incr==0){
 						 	printf("\n============================There is no Student with given ID!============================\n\n");
 						 }
 					// Writing again to the same File
 						 
-					FILE *rm3 = fopen("stud.txt","w");
-				FILE *rm4 = fopen("student2_temo.txt","r"); 
+					FILE *rm3 = fopen("stud.txt","w");		FILE *rm4 = fopen("student2_temo.txt","r"); 
 					if(rm3==NULL){
 					printf("Error reading file");
 					return 1;
@@ -342,6 +290,12 @@ printf("\t\t::");		printf("\t1 - Add a new Student\t\t\t\t\t::\n\t\t::\t2 - View
 
 				 fclose(rm3);
 				 fclose(rm4);
+			}
+				 else{
+					printf("Wrong Password\n");
+					bj:
+					printf("Redirecting to main menu");delay();printf("\n\n");
+				}
 				 							
 					system("pause.bat");
 					goto mn;	
@@ -374,19 +328,23 @@ printf("\t\t::");		printf("\t1 - Add a new Student\t\t\t\t\t::\n\t\t::\t2 - View
 			}
 			
 			case 6:{
-				
+				char password[10];
 				system("cls");
 				header();
 				system("color 4");
 				int rem;
 				
-				printf("\n\t************Remove a Student************\n\n\n");
-				printf("Enter the id of the student you want to remove: ");
+				printf("\n\t\t\t  ************Remove a Student************\n\n\n");
+				printf("\t\tDeleting a Student requires an adminstrator privilage\n\n\n");
+				printf("Enter Adminstrator password: ");
+				scanf("%s",&password);
+				if(strcmp(password,"mypassword")==0){
+				system("cls");	header(); system("color 4");  printf("\n\t\t\t  ************Remove a Student************\n\n\n");
+				printf("\n\t\t\t\t======Adminstrator Mode======\n\n");
+						printf("Enter the id of the student you want to remove: ");
 				scanf("%d",&rem);
 				int coun=0;
-				FILE *rm = fopen("stud.txt","r");
-				FILE *rm2 = fopen("student2_temo.txt","w");
-				
+				FILE *rm = fopen("stud.txt","r"); FILE *rm2 = fopen("student2_temo.txt","w");
 				
 				if(rm==NULL){
 					printf("Error reading file");
@@ -405,12 +363,12 @@ printf("\t\t::");		printf("\t1 - Add a new Student\t\t\t\t\t::\n\t\t::\t2 - View
 									coun++;
 								}
 					}
-			     fclose(rm);
-				 fclose(rm2);
+			     fclose(rm); fclose(rm2);
 				 if(rm!=NULL){fclose(rm); }	
 					 	if(rm2!=NULL){fclose(rm2); }
 					 	if(coun==0){
 					 		printf("\nThere is no student with the given Id!\n\n");
+					 		goto aj;
 					 	}
 						 
 					// Writing again to the same File
@@ -425,22 +383,24 @@ printf("\t\t::");		printf("\t1 - Add a new Student\t\t\t\t\t::\n\t\t::\t2 - View
 					while(3){
 							int cnt =fscanf(rm4,"%s\t%d\t%s\t%d\t%s\t%d\t%d\n",&stud.name,&stud.id,&stud.department,&stud.year,&stud.sex,&stud.block,&stud.available);
 							if(cnt==-1)
-							  break;
-		
+							  break;		
 									//coun++;
 								fprintf(rm3,"%s\t%d\t%s\t%d\t%s\t%d\t%d\n",stud.name,stud.id,stud.department,stud.year,stud.sex,stud.block,avail);					
 						
 					}
-			     fclose(rm3);
-				 fclose(rm4);		
-				 printf("\nStudent has been succsessfully Removed!\n");		
+			     fclose(rm3); fclose(rm4);		
+				 printf("\nStudent has been succsessfully Removed!\n");	
+				}else{
+					printf("Wrong Password\n");
+					aj:
+					printf("Redirecting to main menu");delay();printf("\n\n");
+				}
 				
 				system("pause.bat");
 						goto mn;
 				break;
 			}
-			
-			
+						
 			case 7:{
 					
 				system("cls");
@@ -459,6 +419,7 @@ printf("\t\t::");		printf("\t1 - Add a new Student\t\t\t\t\t::\n\t\t::\t2 - View
 				system("cls");
 				header();
 				printf("\n\n\n\t\t =========================== Good Bye!  ===========================\n\n\n");
+				printf("Exiting");delay();
 				return 0;
 				break;
 			}			
@@ -468,13 +429,14 @@ printf("\t\t::");		printf("\t1 - Add a new Student\t\t\t\t\t::\n\t\t::\t2 - View
 				printf("Do you want to continue? (Y|N) ");				
 				char ch =getch();
 								
-								if(ch=='y' || ch=='Y'){
+								if(ch=='y'||ch=='Y'){
 									goto mn;									
 								}else if(ch=='n'||ch=='N'){
 										printf("\n\n\n==================================  Good Bye!  =========================================\n\n\n");
+										printf("Exiting");delay();
 									exit(1);
 								}else{
-									printf("\nWrong input!\n Exiting...");
+									printf("\nWrong input!\n Exiting");delay();
 										printf("\n\n\n==================================  Good Bye!  =========================================\n\n\n");
 									exit(1);
 								}			

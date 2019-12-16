@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include<stdlib.h>
 #include <string.h>
-
+#include "./time.h"
 
 #ifndef DATA_H_
 #define DATA_H_
@@ -29,9 +29,10 @@ char nav[30]="Not Avaialable";
 	printf("\n\t\t");
 	tm();
 	printf("\t\t::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
-		printf("\t\t::\t\t\t\t\t\t\t\t::\n");
+	printf("\t\t::\t\t\t\t\t\t\t\t::\n");
 	printf("\t\t:.\t ----Student Registaration System Admin Panel----\t.:\n");
-		printf("\t\t::\t\t\t\t\t\t\t\t::\n");
+	printf("\t\t::\t\t\t V 1.0.0\t\t\t\t::\n");
+	printf("\t\t::\t\t\t\t\t\t\t\t::\n");
 	printf("\t\t::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
 	printf("\t\t::\t\t\t\t\t\t\t\t::\n");
 } 
@@ -41,17 +42,17 @@ char nav[30]="Not Avaialable";
 			printf("succsessfull closing File");
 		}
 	}
-	/*
+	
 	void delay(){
 		int i=0;
-		printf("Exiting");
+	//	printf("Exiting");
 		for(i=0;i<3;i++){
-			printf(".");
-			sleep(100);
+			printf(". ");
+			system("Sleep 0.1");
 		}
-		exit(1);
+	
 	}
-	*/	
+	
 	void addStudent(FILE *Fp){					
 							
 							while(2){
@@ -77,6 +78,7 @@ char nav[30]="Not Avaialable";
 							
 								fprintf(Fp,"%s\t%d\t%s\t%d\t%s\t%d\t%d\n",stud.name,stud.id,stud.department,stud.year,stud.sex,stud.block,avail);
 								printf("\n    =========Student has been succsessfully registered!=========\n\n");
+								printf("Exiting");	delay();
 								exit(1);
 								
 								
